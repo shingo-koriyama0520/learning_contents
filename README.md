@@ -1,0 +1,2 @@
+# learning_contents
+出張インターンの講義で行うコンテンツ
