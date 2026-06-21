@@ -1,0 +1,495 @@
+/* =========================
+  CSS変数
+========================= */
+:root {
+  --green:      #00704A;
+  --green-dark: #1E3932;
+  --green-light:#D4E9E2;
+  --cream:      #F2F0EB;
+  --white:      #FFFFFF;
+  --text:       #1E3932;
+  --muted:      #6B6B6B;
+  --border:     #E0DDD8;
+  --radius:     12px;
+}
+
+/* =========================
+  ベース
+========================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* =========================
+  ヘッダー
+========================= */
+.header {
+  background: var(--green-dark);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+
+.logo span {
+  text-transform: capitalize;
+}
+
+#add-btn {
+  padding: 10px 20px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 24px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background .2s, transform .1s;
+}
+
+#add-btn:hover {
+  background: #005c3b;
+  transform: translateY(-1px);
+}
+
+/* =========================
+  ヒーローバナー
+========================= */
+.hero {
+  background: var(--green-dark);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(0,112,74,0.5) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(0,112,74,0.3) 0%, transparent 50%);
+  padding: 230px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--green-light);
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.hero-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-transform: capitalize;
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: var(--green-light);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* =========================
+  メッセージ
+========================= */
+.message {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 40px;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+.message.success { color: var(--green); }
+.message.error   { color: #c0392b; }
+
+/* =========================
+  カード一覧
+========================= */
+main {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 40px;
+}
+
+/* =========================
+  カード
+========================= */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform .25s, box-shadow .25s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s;
+}
+
+.card:hover .card-image {
+  transform: scale(1.03);
+}
+
+.card-image-wrap {
+  overflow: hidden;
+}
+
+.card-image-placeholder {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, var(--green-light), var(--cream));
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-body h3 {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+  カードボタン
+========================= */
+.card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 7px 4px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  transition: opacity .15s;
+}
+
+.card-actions button:hover { opacity: 0.8; }
+
+.detail-btn {
+  background: var(--green);
+  color: var(--white);
+  font-size: 11px;
+}
+
+.edit-btn {
+  background: var(--cream);
+  color: var(--text);
+  font-size: 12px;
+  border: 1px solid var(--border) !important;
+}
+
+.delete-btn {
+  background: #fdecea;
+  color: #c0392b;
+  font-size: 12px;
+}
+
+/* =========================
+  モーダル共通
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(30,57,50,0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.hidden { display: none; }
+
+/* =========================
+  編集モーダル
+========================= */
+.modal-content {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 16px;
+  width: 440px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+/* =========================
+  詳細モーダル
+========================= */
+.detail-modal-content {
+  width: 540px;
+}
+
+.detail-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.detail-title {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.detail-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 8px;
+}
+
+.detail-field {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-field:last-child { border-bottom: none; }
+
+.detail-label {
+  color: var(--muted);
+  min-width: 140px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding-top: 1px;
+}
+
+.detail-value {
+  color: var(--text);
+  word-break: break-all;
+  font-size: 14px;
+}
+
+/* =========================
+  フォーム
+========================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+form input,
+form textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  width: 100%;
+  background: var(--cream);
+  transition: border-color .15s;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity .15s;
+}
+
+.modal-actions button:hover { opacity: 0.85; }
+
+.modal-actions button[type="submit"] {
+  background: var(--green);
+  color: var(--white);
+}
+
+#cancel-btn,
+#detail-close-btn {
+  background: var(--cream);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* =========================
+  フッター
+========================= */
+.footer {
+  background: var(--green-dark);
+  color: var(--green-light);
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  margin-top: 60px;
+}
+
+/* =========================
+  keyごとのカード・画像スタイル
+========================= */
+
+/* --- jobs: 横長バナー風 --- */
+.card-style-jobs .card-img-jobs {
+  height: 140px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- movies: 縦長ポスター風 --- */
+.card-style-movies {
+  max-width: 220px;
+}
+.card-img-movies {
+  height: 300px !important;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* --- books: 縦長・書影風 --- */
+.card-style-books {
+  max-width: 200px;
+}
+.card-img-books {
+  height: 260px !important;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.18);
+  border-radius: 2px 8px 8px 2px;
+}
+
+/* --- restaurants: 今のまま --- */
+.card-img-restaurants {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* --- tourist_attractions: フライヤー風（横長・高め・オーバーレイ） --- */
+.card-style-tourist {
+  position: relative;
+}
+.card-img-tourist {
+  height: 200px !important;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.85);
+}
+
+/* =========================
+  背景写真エリア
+========================= */
+.main-bg {
+  position: relative;
+  background-size: 120%;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background-image 0.6s ease;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* 写真の上に薄いオーバーレイをかけてカードを読みやすく */
+.main-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(252, 252, 252, 0.226);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* カード一覧はオーバーレイの上に表示 */
+.card-list {
+  position: relative;
+  z-index: 1;
+}
