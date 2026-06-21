@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">✦ <span id="page-title">一覧</span></div>
+      <button id="add-btn">＋ 追加</button>
+    </div>
+  </header>
+
+  <!-- ヒーローバナー -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-sub">DISCOVER YOUR FAVORITE</p>
+      <h2 class="hero-title" id="hero-title">一覧</h2>
+      <p class="hero-desc">お気に入りを見つけよう。</p>
+    </div>
+  </section>
+
+  <!-- メッセージ -->
+  <div id="message" class="message"></div>
+
+  <!-- 一覧 -->
+  <main id="main-bg" class="main-bg">
+    <div class="main-bg-overlay"></div>
+    <div id="item-list" class="card-list"></div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <p>© 2026 CRUD App. All rights reserved.</p>
+  </footer>
+
+  <!-- 詳細モーダル -->
+  <div id="detail-modal" class="modal hidden">
+    <div class="modal-content detail-modal-content">
+      <div id="detail-content"></div>
+      <div class="modal-actions">
+        <button type="button" id="detail-close-btn">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 編集モーダル -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="modal-title">新規作成</h2>
+      <form id="form">
+        <div id="form-fields"></div>
+        <div class="modal-actions">
+          <button type="submit">保存</button>
+          <button type="button" id="cancel-btn">キャンセル</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
